@@ -1,4 +1,5 @@
-import 'package:forestvpn_test/repositories/news/repository.dart';
+import 'abstract_news_repository.dart';
+import 'models/article.dart';
 
 class MockNewsRepository implements AbstractNewsRepository {
   @override
