@@ -1,7 +1,9 @@
 import 'package:era_developers_test_flutter/presentation/ui/news_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../utils/date_util.dart';
 import '../../../repositories/news/models/article.dart';
+import '../../bloc/news_block.dart';
 
 class NewsWidget extends StatelessWidget {
   final Article article;
@@ -11,13 +13,15 @@ class NewsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){Navigator.push(
+      onTap: (){
+        BlocProvider.of<NewsBloc>(context).add(MarkReadById(article.id));
+        Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => NewsPage(id: article.id)),
       );},
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: article.readed ? const Color(0xFFF5F5F5) : Colors.white,
           borderRadius: BorderRadius.circular(9.0),
           boxShadow: const [
             BoxShadow(
@@ -43,7 +47,7 @@ class NewsWidget extends StatelessWidget {
               margin: const EdgeInsets.only(top: 20, left: 20, bottom: 23, right: 23),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: Color(0xFFFC4C4C4),
+                color: const Color(0xFFC4C4C4),
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),

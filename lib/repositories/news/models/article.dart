@@ -14,4 +14,15 @@ class Article {
   final String imageUrl;
   final bool readed;
   final String? description;
+
+  factory Article.copyWith(Article oldArticle, {bool? readed}) {
+    return Article(
+      id: oldArticle.id,
+      title: oldArticle.title,
+      publicationDate: oldArticle.publicationDate,
+      imageUrl: oldArticle.imageUrl,
+      readed: readed?? oldArticle.readed,
+      description: oldArticle.description,
+    );
+  }
 }
