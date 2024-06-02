@@ -14,12 +14,6 @@ class MockNewsRepository implements AbstractNewsRepository {
     //await Future.delayed(const Duration(seconds: 1));
     return _mockArticles.firstWhere((e) => e.id == id);
   }
-
-  @override
-  Future<List<Article>> getFeaturedArticles() async {
-    //await Future.delayed(const Duration(seconds: 1));
-    return _mockArticles;
-  }
 }
 
 final _mockArticles = [
@@ -32,6 +26,24 @@ final _mockArticles = [
 Due to Google's efforts to maintain a “safe ads ecosystem” for its advertisers, publishers and users from fraud and bad experiences, Google has placed restrictions on our ad serving that limit our ability to provide free VPN services. 
 Regrettably, this is beyond our control.  
 To continue to enjoy ForestVPN without interruptions, please upgrade to our Premium version.''',
+  ),
+  Article(
+    id: '1108389a-b3db-11ec-b909-0242ac120003',
+    title: 'Exploring New Horizons...',
+    publicationDate: DateTime.now().subtract(const Duration(days: 5)),
+    imageUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWxc5rjeK0sYU72tKGm58NOTZI4ZRgZ4flhg&s',
+    description:
+        '''As we stand on the brink of a new era, the possibilities seem endless. From groundbreaking scientific discoveries to innovative technologies reshaping our world, every day brings something new and exciting. Join us as we explore these new horizons together.''',
+  ),
+  Article(
+    id: '0e8dba30-b3dc-11ec-b909-0242ac120004',
+    title: 'The Future of AI...',
+    publicationDate: DateTime.now().subtract(const Duration(days: 8)),
+    imageUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTel7qqxRC5P6sA8oYCHe0mk85poQesSXKR8w&s',
+    description:
+        '''Artificial Intelligence is transforming industries and changing the way we live and work. As we delve deeper into the realm of AI, we're unlocking unprecedented potential, paving the way for a future where technology serves humanity better than ever before.''',
   ),
   Article(
     id: '0e8dba30-b3dc-11ec-b909-0242ac120002',
@@ -63,5 +75,4 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
 Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.''',
   ),
-
 ];

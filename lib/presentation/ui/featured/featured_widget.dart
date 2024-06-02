@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../repositories/news/models/article.dart';
+import '../../bloc/featured_bloc.dart';
 import '../news_page.dart';
 
 class FeaturedWidget extends StatelessWidget {
@@ -11,6 +13,8 @@ class FeaturedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        BlocProvider.of<ArticlesBloc>(context)
+            .add(MarkFeaturedReadById(article.id));
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => NewsPage(id: article.id)),

@@ -4,7 +4,7 @@ class DateUtil {
     final differenceInDays = now.difference(date).inDays;
 
     if (differenceInDays <= 7) {
-      if (differenceInDays == 1){
+      if (differenceInDays == 1) {
         return '1 day ago';
       }
       return '$differenceInDays days ago';

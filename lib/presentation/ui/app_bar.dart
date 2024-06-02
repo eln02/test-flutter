@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../bloc/news_block.dart';
+import '../bloc/featured_bloc.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({Key? key}) : super(key: key);
@@ -26,10 +26,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         TextButton(
             onPressed: () {
-              BlocProvider.of<NewsBloc>(context).add(MarkAllRead());
+              BlocProvider.of<ArticlesBloc>(context).add(MarkAllFeaturedRead());
             },
             style: TextButton.styleFrom(
-                padding: const EdgeInsets.all(0), overlayColor: Colors.transparent),
+                padding: const EdgeInsets.all(0),
+                overlayColor: Colors.transparent),
             child: Text(
               "Mark all read",
               style: Theme.of(context).textTheme.labelMedium,
